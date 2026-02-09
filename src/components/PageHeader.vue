@@ -22,7 +22,7 @@
   <div class="component-page-header clearfix" ref="PageHeaderComponent">
     <span class="trade-mark" target="_blank"  >
       <i class="icon-piano"></i>
-      <h1 class="trade-mark-txt">自由钢琴<span class="trade-mark-txt--en">AutoPiano.cn</span></h1>
+      <h1 class="trade-mark-txt">Ning<span class="trade-mark-txt--en">AutoPiano.cn</span></h1>
     </span>
     <div class="menu">
       <router-link class="menu-item" :to="{ path: '/' }" active-class="menu-item-active" exact>首页</router-link>

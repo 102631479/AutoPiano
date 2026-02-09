@@ -47,11 +47,7 @@
     .difficulty-degree { text-align: center;
       .icon-heartbeat { display: inline-block; transform: scale(.7); margin-left: -6px; }
     }
-    .control-bar { width: 100%; text-align: center; padding: 15px 0;
-      .stop-btn { display: inline-block; width: 70px; height: 30px; line-height: 30px; background: @c-red; color: #fff; cursor: pointer;
-        &:hover { opacity: .8; }
-      }
-    }
+    .control-bar { width: 100%; text-align: center; padding: 15px 0; }
   }
 
   @keyframes spin {
@@ -143,7 +139,10 @@
         <i class="icon-heartbeat" v-for="(star, sindex) in new Array(playingItem.degree)" :key="sindex"></i>
       </div>
       <div class="control-bar">
-        <a class="stop-btn" @click.stop="stopMusicPlayer()">停止</a>
+        <a
+          class="inline-block h-8 w-20 rounded bg-red-500 text-center leading-8 text-white cursor-pointer hover:bg-red-600 transition-colors"
+          @click.stop="stopMusicPlayer()"
+        >停止</a>
       </div>
     </div>
   </div>

@@ -57,31 +57,16 @@
       border-left: solid 1px #ccc;
       transition: all 0.3s ease-in-out;
       .trigger {
-        width: 30px;
-        height: 86px;
-        font-size: 16px;
-        text-align: center;
-        padding-top: 7px;
         position: absolute;
         top: 50%;
         left: -32px;
-        background: @c-red;
-        color: #fff;
-        cursor: pointer;
         z-index: 101;
+        height: 86px;
       }
-      // .trigger::before { content: ''; width: 8px; height: 8px; background: #f00;; position: absolute; top: -2px; right: -2px; border-radius: 50%; }
       .close {
-        width: 20px;
-        height: 20px;
-        line-height: 20px;
-        text-align: center;
         position: absolute;
         top: 10px;
         right: 15px;
-        background: @c-red;
-        color: #fff;
-        cursor: pointer;
         z-index: 101;
       }
       .component-manual-list {
@@ -113,8 +98,14 @@
         <AutoPlayScoreList></AutoPlayScoreList>
       </div>
       <div class="right-drawer" :class="{ show: rightDrawerShow }">
-        <div class="trigger" @click="toggleRightDrawer">歌曲列表</div>
-        <div class="close" @click="hideRightDrawer">X</div>
+        <div
+          class="trigger w-8 flex items-center justify-center rounded-l bg-red-500 pt-1.5 text-base text-white cursor-pointer hover:bg-red-600 transition-colors"
+          @click="toggleRightDrawer"
+        >歌曲列表</div>
+        <div
+          class="close flex h-5 w-5 items-center justify-center rounded bg-red-500 text-sm text-white cursor-pointer hover:bg-red-600 transition-colors"
+          @click="hideRightDrawer"
+        >X</div>
         <ManualPlayScoreList></ManualPlayScoreList>
       </div>
       <div class="blank-page-pc" style="height: 200px"></div>

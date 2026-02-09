@@ -19,10 +19,6 @@
     }
    }
    .content-wrap { width: 100%;
-      .info { font-size: 14px; margin: 5px 0; height: 28px; line-height: 28px; text-align: center; background: @c-blue; color: #fff; border-radius: 2px; }
-      .return-btn { cursor: pointer; width: 80px; height: 32px; line-height: 32px; color: @c-blue-d;
-        &:hover { text-decoration: underline; color: @c-blue; }
-      }
       .author-info { float: right; line-height: 32px;
         a { color: @c-blue-d; margin-right: 7px;}
       }
@@ -51,11 +47,15 @@
       </ol>
       <div class="content-wrap" v-show="!listShow">
         <div class="section">
-          <a href="javascript:;" class="return-btn" @click="toggleListShow()">&lt;&lt;&nbsp;返回列表</a>
+          <a
+            href="javascript:;"
+            class="inline-block h-8 w-20 cursor-pointer text-sm leading-8 text-blue-700 hover:underline hover:text-blue-600"
+            @click="toggleListShow()"
+          >&lt;&lt;&nbsp;返回列表</a>
           <span v-show="showItem.author" class="author-info"><a target="_blank"
               :href="showItem.authorLink || 'javascript:;'">&nbsp;{{showItem.author}}</a>提供</span>
         </div>
-        <p class="info">在键盘上依次按以下键进行演奏，注意控制节奏。</p>
+        <p class="my-1.5 h-7 text-center text-sm leading-7 text-white rounded bg-blue-500">在键盘上依次按以下键进行演奏，注意控制节奏。</p>
         <div class="score-item-content" v-html="showItem.content || ''"></div>
         <div class="score-item-lyrics" v-html="showItem.lyrics || ''"></div>
       </div>
