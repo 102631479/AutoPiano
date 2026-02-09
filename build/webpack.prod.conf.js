@@ -5,6 +5,7 @@ var config = require("../config");
 var merge = require("webpack-merge");
 var baseWebpackConfig = require("./webpack.base.conf");
 var CleanWebpackPlugin = require("clean-webpack-plugin");
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var env = config.build.env;
 
@@ -21,12 +22,21 @@ var webpackConfig = merge(baseWebpackConfig, {
     filename: utils.assetsPath("js/[name].[chunkhash].js"),
     chunkFilename: utils.assetsPath("js/[id].[chunkhash].js")
   },
-  // output: {
-  //   path: config.build.assetsRoot,
-  //   filename: utils.assetsPath('js/[name].js'),
-  //   chunkFilename: utils.assetsPath('js/[id].js')
-  // },
-  plugins: []
+  plugins: [
+    new webpack.DefinePlugin({
+      "process.env": env
+    }),
+    new ExtractTextPlugin({
+      filename: utils.assetsPath("css/[name].[contenthash:7].css"),
+      allChunks: true
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      },
+      sourceMap: config.build.productionSourceMap
+    })
+  ]
 });
 
 if (config.build.productionGzip) {
