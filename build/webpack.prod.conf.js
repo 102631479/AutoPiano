@@ -6,6 +6,7 @@ var merge = require("webpack-merge");
 var baseWebpackConfig = require("./webpack.base.conf");
 var CleanWebpackPlugin = require("clean-webpack-plugin");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var HtmlWebpackPlugin = require("html-webpack-plugin");
 
 var env = config.build.env;
 
@@ -29,6 +30,17 @@ var webpackConfig = merge(baseWebpackConfig, {
     new ExtractTextPlugin({
       filename: utils.assetsPath("css/[name].[contenthash:7].css"),
       allChunks: true
+    }),
+    new HtmlWebpackPlugin({
+      filename: config.build.index,
+      template: "index.html",
+      inject: true,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+      },
+      chunksSortMode: "dependency"
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {

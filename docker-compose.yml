@@ -1,6 +1,11 @@
 services:
-  web:
+  piano:
     build: .
+    image: ${CONTAINER_NAME:-autopiano}
+    container_name: ${CONTAINER_NAME:-autopiano}
+    labels:
+      createdBy: Apps
     ports:
-      - "8080:80"
-    container_name: autopiano
+      # 本机 5001 端口 -> 容器 80 端口（nginx）
+      - "${HOST_IP:-0.0.0.0}:5001:80"
+    restart: on-failure:5
