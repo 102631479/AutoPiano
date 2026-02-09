@@ -30,6 +30,7 @@
     height: 100%;
     overflow-y: scroll;
     position: relative;
+    z-index: 1;
     .piano-scroll-wrap {
       overflow: hidden;
     }
@@ -102,7 +103,7 @@
 <template>
   <div class="page-pc">
     <div class="app-bg" :style="appBgStyle"></div>
-
+    <Snow></Snow>
     <div class="app-content">
       <PageHeader></PageHeader>
       <RandomLyric></RandomLyric>
@@ -111,8 +112,6 @@
         <ManualPlayScoreList></ManualPlayScoreList>
         <AutoPlayScoreList></AutoPlayScoreList>
       </div>
-      <h2 class="section-title responsive-section-a">探索实体乐器</h2>
-      <CommodityList />
       <div class="right-drawer" :class="{ show: rightDrawerShow }">
         <div class="trigger" @click="toggleRightDrawer">歌曲列表</div>
         <div class="close" @click="hideRightDrawer">X</div>
@@ -133,7 +132,7 @@ import RandomLyric from "@/components/RandomLyric";
 import Piano from "@/components/Piano";
 import ManualPlayScoreList from "@/components/ManualPlayScoreList";
 import AutoPlayScoreList from "@/components/AutoPlayScoreList";
-import CommodityList from "@/components/CommodityList.vue";
+import Snow from "@/components/Snow";
 
 import { mapActions, mapGetters } from "vuex";
 import { OBEvent, Wallpaper } from "@/config";
@@ -147,7 +146,7 @@ export default {
     Piano,
     ManualPlayScoreList,
     AutoPlayScoreList,
-    CommodityList,
+    Snow,
   },
   data() {
     return {

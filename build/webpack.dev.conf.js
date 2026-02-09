@@ -15,6 +15,10 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 })
 
 module.exports = merge(baseWebpackConfig, {
+  watchOptions: {
+    ignored: /node_modules/,
+    aggregateTimeout: 300
+  },
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
   },

@@ -20,13 +20,12 @@
 
 <template>
   <div class="component-page-header clearfix" ref="PageHeaderComponent">
-    <a class="trade-mark" target="_blank" href="http://www.autopiano.cn" >
+    <span class="trade-mark" target="_blank"  >
       <i class="icon-piano"></i>
       <h1 class="trade-mark-txt">自由钢琴<span class="trade-mark-txt--en">AutoPiano.cn</span></h1>
-    </a>
+    </span>
     <div class="menu">
       <router-link class="menu-item" :to="{ path: '/' }" active-class="menu-item-active" exact>首页</router-link>
-      <router-link class="menu-item" :to="{ path: '/links' }" active-class="menu-item-active" exact>友情链接</router-link>
       <a class="menu-item" @click.stop="emitChangeWallPaper">更换壁纸</a>
       <!--<a class="menu-item" >钢琴基础教学</a>-->
     </div>

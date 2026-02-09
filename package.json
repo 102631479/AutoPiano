@@ -5,7 +5,8 @@
   "author": "ZhouJihao <249662605@qq.com>",
   "private": true,
   "scripts": {
-    "start": "node build/dev-server.js"
+    "start": "node build/dev-server.js",
+    "dev": "ulimit -n 10240 2>/dev/null; node build/dev-server.js"
   },
   "dependencies": {
     "@tonejs/midi": "^2.0.27",
